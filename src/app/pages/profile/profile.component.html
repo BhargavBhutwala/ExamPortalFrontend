@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<mat-card *ngIf="user">
+    <h1 style="margin-left: 20px; margin-top: 20px;">Your Profile Details</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="row">
+
+                    <div class="container text-center">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/010/260/479/small/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg" 
+                        alt="">
+                        <h1>{{user.firstName}} {{user.lastName}}</h1>
+                    </div>
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center">
+                            <tr>
+                                <td>Username</td>
+                                <td>{{user.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>Id</td>
+                                <td>Exam{{user.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>{{user.phone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Role</td>
+                                <td>{{user.authorities[0].authority}}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>{{user.enabled?'Active':'Not Active'}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-footer class="text-center" style="margin-top: 30px; margin-bottom: 20px;">
+        <button mat-raised-button color="accent">Edit Profile</button>
+    </mat-card-footer>
+
+</mat-card>
