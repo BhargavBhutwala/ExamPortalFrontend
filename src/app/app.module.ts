@@ -28,6 +28,7 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import {MatTableModule} from '@angular/material/table';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AddCategoriesComponent } from './pages/admin/add-categories/add-categor
     SidebarComponent,
     WelcomeComponent,
     ViewCategoriesComponent,
-    AddCategoriesComponent
+    AddCategoriesComponent,
+    ViewQuizzesComponent
   ],
   imports: [
     BrowserModule,
