@@ -14,7 +14,8 @@
         <button mat-flat-button color="success" style="margin-left: 20px;">Attempts</button>
         <button mat-button color="warn" style="margin-left: 20px;">Total Marks: {{quiz.maxMarks}}</button>
         <button mat-button color="warn" style="margin-left: 20px;">Total Questions: {{quiz.numberOfQuestions}}</button>
-      </mat-card-actions>
+        <button mat-fab color="warn" style="margin-left: auto;margin-right: 10px;" (click)="deleteQuiz(quiz.qId)"><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
 </mat-card>
 <div class="container text-center" style="margin-top: 20px;">
     <button mat-raised-button color="accent" routerLink="/admin/add-quiz">Add New Quiz</button>
