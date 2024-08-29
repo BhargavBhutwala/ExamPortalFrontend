@@ -10,7 +10,7 @@
     </mat-card-content>
     <mat-card-actions style="margin-top: 10px; margin-bottom: 10px;">
         <button mat-flat-button color="accent">Questions</button>
-        <button mat-flat-button color="primary" style="margin-left: 20px;">Update</button>
+        <button mat-flat-button [routerLink]="'/admin/update-quiz/' + quiz.qId" color="primary" style="margin-left: 20px;">Update</button>
         <button mat-flat-button color="success" style="margin-left: 20px;">Attempts</button>
         <button mat-button color="warn" style="margin-left: 20px;">Total Marks: {{quiz.maxMarks}}</button>
         <button mat-button color="warn" style="margin-left: 20px;">Total Questions: {{quiz.numberOfQuestions}}</button>
