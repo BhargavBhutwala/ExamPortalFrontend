@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<mat-card>
+    <h1 style="margin-left: 20px; margin-top: 20px;">Add New Question to {{title}} Quiz</h1>
+    <div class="bootstrap-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form style="margin-top: 20px;">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Question</mat-label>
+                            <textarea required matInput name="title" placeholder="Enter Question" rows="6"></textarea>
+                        </mat-form-field>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>Option 1</mat-label>
+                                    <input required matInput name="option1" placeholder="Enter Option 1">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>Option 2</mat-label>
+                                    <input required matInput name="option2" placeholder="Enter Option 2">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>Option 3</mat-label>
+                                    <input required matInput name="option3" placeholder="Enter Option 3">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>Option 4</mat-label>
+                                    <input required matInput name="option4" placeholder="Enter Option 4">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <!-- <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Answer</mat-label>
+                            <input required matInput name="answer" placeholder="Enter Answer">
+                        </mat-form-field> -->
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Answer</mat-label>
+                            <mat-select required>
+                                <mat-option>Option 1</mat-option>
+                                <mat-option>Option 2</mat-option>
+                                <mat-option>Option 3</mat-option>
+                                <mat-option>Option 4</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div class="container text-center" style="margin-top: 20px; margin-bottom: 20px;">
+                            <button type="submit" mat-raised-button color="primary">Add</button>
+                            <button style="margin-left: 20px;" mat-raised-button color="accent">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>

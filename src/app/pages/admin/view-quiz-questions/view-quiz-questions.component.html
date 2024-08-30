@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <mat-card appearance="outlined" style="margin-top: 10px; padding: 10px;">
-    <h1 style="margin-left: 20px; margin-top: 20px;">Questions of {{title}}</h1>
+    <h1 style="margin-left: 20px; margin-top: 20px;">Questions of {{title}} Quiz</h1>
 </mat-card>
 <mat-card *ngFor="let question of questions; let i=index" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
     <mat-card-header style="margin-top: 10px;">
@@ -27,3 +27,12 @@
         </div>
     </mat-card-content>
 </mat-card>
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container text-center" style="margin-top: 20px;">
+                <button mat-raised-button color="accent" [routerLink]="'/admin/add-question/' + qId +'/' +title">Add Questions</button>
+            </div>
+        </div>
+    </div>
+</div>
