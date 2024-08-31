@@ -14,7 +14,16 @@ export class UpdateQuizComponent implements OnInit{
 
   qId: any = 0;
 
-  quizData: any = {};
+  quizData: any = {
+    title: '',
+    description: '',
+    maxMarks: '',
+    numberOfQuestions: '',
+    active: true,
+    category: {
+      cId: 0
+    }
+  };
 
   categories: any = [];
 
