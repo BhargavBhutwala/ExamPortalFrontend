@@ -26,6 +26,11 @@
             </div>
         </div>
     </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <h2 style="margin-left: 10px;">Answer: {{question.answer}}</h2>
+        <button mat-fab color="warn" style="margin-left: auto; margin-right: 20px; margin-bottom: 10px;" (click)="deleteQuestion(question.questionId)"><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
 </mat-card>
 <div class="bootstrap-wrapper">
     <div class="row">
