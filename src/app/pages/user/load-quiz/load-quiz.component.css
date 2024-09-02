@@ -1,0 +1,11 @@
+.example-header-image {
+    background-image: url('../../../../assets/answer.png');
+    background-size: cover;
+}
+.truncate {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+}
