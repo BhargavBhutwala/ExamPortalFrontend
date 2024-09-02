@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from '../../../services/question.service';
@@ -10,6 +11,8 @@ import Swal from 'sweetalert2';
   styleUrl: './add-question.component.css'
 })
 export class AddQuestionComponent implements OnInit{
+
+  //public Editor: any = null;
 
   qId: any = 0;
 
@@ -28,9 +31,19 @@ export class AddQuestionComponent implements OnInit{
   constructor(private route: ActivatedRoute, private snackBar: MatSnackBar, private questionService: QuestionService, private router: Router){}
 
   ngOnInit(): void {
+
+    // if (isPlatformBrowser(this.platformId)) {
+    //   import('@ckeditor/ckeditor5-build-classic').then((ClassicEditor) => {
+    //     this.Editor = ClassicEditor;
+    //   }).catch(error => {
+    //     console.error('Error loading CKEditor:', error);
+    //   });
+    // }
+
     this.qId = this.route.snapshot.params['qId'];
     this.title = this.route.snapshot.params['title'];
     this.question.quiz['qId'] = this.qId;
+
   }
 
   addQuestion(){
