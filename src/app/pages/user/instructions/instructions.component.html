@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card style="margin-top: 10px;">
+                    <mat-card-header style="margin-left: 20px;">
+                        <mat-card-title>Welcome to the Quiz!</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content style="margin-left: 20px; margin-top: 20px;">
+                        <h1>{{quiz.title}} Quiz</h1>
+                        <p>{{quiz.description}}</p>
+                        <mat-divider></mat-divider>
+                        <h1 style="margin-top: 20px;">Quiz Instructions</h1>
+                        <p style="margin-top: 20px;">
+                            1. This quiz is timed, and once you start, there's no turning back. <br><br>
+                            
+                            2. Answer honestly, and don't waste time—every second counts. <br><br>
+                            
+                            3. No cheating, no second chances. <br><br>
+                            
+                            4. Submit before the clock runs out, or your answers won't count. <br><br>
+                            
+                            5. Play fair, or face the consequences. <br><br>
+                            
+                            Ready? Click "Start Quiz" if you dare.</p>
+                    </mat-card-content>
+                    <div class="container text-center" style="margin-top: 20px; margin-bottom: 20px;">
+                        <button mat-raised-button color="accent">Start Quiz</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
