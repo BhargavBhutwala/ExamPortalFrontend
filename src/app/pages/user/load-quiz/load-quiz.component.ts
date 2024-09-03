@@ -24,7 +24,7 @@ export class LoadQuizComponent implements OnInit{
 
       if(this.cId == 0){
         //console.log('works');
-        this.quizService.getAllQuizzes().subscribe(
+        this.quizService.getActiveQuizzes().subscribe(
           (data:  any) => {
             this.quizzes = data;
             console.log(this.quizzes);
@@ -35,7 +35,7 @@ export class LoadQuizComponent implements OnInit{
         );
       }
       else{
-        this.quizService.getQuizzesByCategory(this.cId).subscribe(
+        this.quizService.getActiveQuizzesByCategory(this.cId).subscribe(
           (data: any) => {
             this.quizzes = data;
           },
