@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <div class="bootstrap-wrapper">
     <div class="container-fluid">
-        <h1 style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;">All Quizzes</h1>
+        <h1 style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;" *ngIf="quizzes.length !== 0">All Quizzes</h1>
         <div class="row" *ngIf="quizzes">
             <div class="col-md-4" *ngFor="let quiz of quizzes">
                 <mat-card style="margin-top: 20px; margin-left: 20px; margin-right: 20px;" appearance="outlined">
@@ -19,6 +19,13 @@
                         <button mat-button color="warn" style="margin-left: 10px;">Marks: {{quiz.maxMarks}}</button>
                         <button mat-button color="warn" style="margin-left: 10px;">Questions: {{quiz.numberOfQuestions}}</button>
                     </mat-card-actions>
+                </mat-card>
+            </div>
+            <div class="col-md-12" *ngIf="quizzes.length === 0">
+                <mat-card style="margin-top: 20px; margin-left: 20px; margin-right: 20px;" appearance="outlined">
+                    <mat-card-content>
+                        <h1 class="text-center">No quizzes to show</h1>
+                    </mat-card-content>
                 </mat-card>
             </div>
         </div>

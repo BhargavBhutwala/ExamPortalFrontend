@@ -7,6 +7,6 @@
         <!-- <div mat-subheader>Menu</div> -->
         <button mat-list-item routerLink="/user-dashboard/"><mat-icon class="mat-list-icon">home</mat-icon> Home</button>
         <button mat-list-item routerLink="/user-dashboard/0"><mat-icon>view_list</mat-icon> All Quizzes</button>
-        <button mat-list-item *ngFor="let category of categories"><mat-icon>tour</mat-icon> {{category.title}}</button>
+        <button mat-list-item [routerLink]="'/user-dashboard/'+category.cId" *ngFor="let category of categories"><mat-icon>tour</mat-icon> {{category.title}}</button>
     </mat-action-list>
 </mat-card>
