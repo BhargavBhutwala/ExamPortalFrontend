@@ -39,6 +39,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -63,7 +65,8 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
     AddQuestionComponent,
     UserSidebarComponent,
     LoadQuizComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    StartQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,8 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
-    CKEditorModule
+    CKEditorModule,
+    MatRadioModule
   ],
   providers: [
     provideClientHydration(),
