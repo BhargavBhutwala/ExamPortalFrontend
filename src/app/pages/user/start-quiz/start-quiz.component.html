@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<div class="bootstrap-wrapper">
+<div class="bootstrap-wrapper" *ngIf="!isSubmit">
     <div class="container">
         <div class="row">
             <div class="col-md-2">
                 <!-- instructions -->
             </div>
             <div class="col-md-8">
-                <ng-container *ngIf="questions">
+                <ng-container *ngIf="questions && questions.length > 0 && questions[0].quiz">
                     <h1 style="margin-left: 20px; margin-top: 20px;" class="text-center"><b>{{questions[0].quiz.title}} Quiz</b></h1>
                     <mat-card *ngFor="let question of questions; let i=index" style="margin-top: 20px;">
                         <mat-card-header style="margin-top: 10px;">
@@ -14,7 +14,7 @@
                         </mat-card-header>
                         <mat-card-content style="margin-top: 20px;">
                             <div class="container-fluid">
-                                <mat-radio-group name="{{i}}">
+                                <mat-radio-group name="{{i}}" [(ngModel)]="question.selectedAnswer">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <mat-radio-button [value]="question.option1">{{question.option1}}</mat-radio-button>
@@ -36,12 +36,52 @@
                         </mat-card-content>
                     </mat-card>
                     <div class="container text-center" style="margin-top: 30px;">
-                        <button mat-raised-button color="primary">Submit Quiz</button>
+                        <button mat-raised-button color="primary" (click)="submitQuiz()">Submit Quiz</button>
                     </div>
                 </ng-container>
             </div>
             <div class="col-md-2">
                 <!-- progress bar -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- show the results -->
+<div class="bootstrap-wrapper" *ngIf="isSubmit">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <mat-card style="margin-top: 20px;">
+                    <h1 style="margin-left: 20px; margin-top: 20px;" class="text-center">Result</h1>
+                    <mat-card-content>
+                        <table class="table text-center">
+                            <tr>
+                                <td>Total Questions</td>
+                                <td>{{questions.length}}</td>
+                            </tr>
+                            <tr>
+                                <td>Questions Attempted</td>
+                                <td>{{attempted}}</td>
+                            </tr>
+                            <tr>
+                                <td>Correct Answers</td>
+                                <td>{{correctAnswers}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total Marks</td>
+                                <td>{{questions[0].quiz.maxMarks}}</td>
+                            </tr>
+                            <tr>
+                                <td>Marks Obtained</td>
+                                <td>{{marksObtained}}</td>
+                            </tr>
+                        </table>
+                    </mat-card-content>
+                    <div class="container text-center" style="margin-top: 30px; margin-bottom: 30px;">
+                        <button mat-raised-button color="primary">Print</button>
+                        <button mat-raised-button color="accent" routerLink="/user-dashboard/0" style="margin-left: 10px;">Back</button>
+                    </div>
+                </mat-card>
             </div>
         </div>
     </div>
