@@ -42,6 +42,7 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 
 @NgModule({
@@ -87,7 +88,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSelectModule,
     CKEditorModule,
     MatRadioModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
   ],
   providers: [
     provideClientHydration(),
