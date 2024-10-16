@@ -24,6 +24,8 @@ export class StartQuizComponent implements OnInit{
 
   isSubmit: boolean = false;
 
+  timer: any;
+
   constructor(private locationStrategy: LocationStrategy, private route: ActivatedRoute, private questionService: QuestionService){}
 
   ngOnInit(): void {
@@ -32,10 +34,12 @@ export class StartQuizComponent implements OnInit{
     this.questionService.getQuestionsOfQuizStudents(this.qId).subscribe(
       (data: any) =>{
         this.questions = data;
+        this.timer = this.questions.length*2*60;
         this.questions.forEach((question: any) => {
           question['selectedAnswer'] = '';
         });
         console.log(this.questions);
+        this.startTimer();
       },
       (error) => {
         console.log(error);
@@ -61,24 +65,47 @@ export class StartQuizComponent implements OnInit{
       /* Read more about isConfirmed, isDenied below */
       this.isSubmit = true;
       if (result.isConfirmed) {
-        this.questions.forEach((question: any) => {
-
-          if(question.selectedAnswer == question.answer){
-            this.correctAnswers++;
-            // let singleMark = question.quiz.maxMarks/this.questions.length;
-            // this.marksObtained += singleMark;
-          }
-          if(question.selectedAnswer.trim() != ''){
-            this.attempted++;
-          }
-        });
-        let singleMark = this.questions[0].quiz.maxMarks/this.questions.length;
-        this.marksObtained = this.correctAnswers*singleMark;
-        console.log(this.correctAnswers);
-        console.log(this.marksObtained);
-        console.log(this.attempted);
+        this.evalQuiz();
       }
     });
+  }
+
+  evalQuiz(){
+    this.questions.forEach((question: any) => {
+
+      if(question.selectedAnswer == question.answer){
+        this.correctAnswers++;
+        // let singleMark = question.quiz.maxMarks/this.questions.length;
+        // this.marksObtained += singleMark;
+      }
+      if(question.selectedAnswer.trim() != ''){
+        this.attempted++;
+      }
+    });
+    let singleMark = this.questions[0].quiz.maxMarks/this.questions.length;
+    this.marksObtained = this.correctAnswers*singleMark;
+    console.log(this.correctAnswers);
+    console.log(this.marksObtained);
+    console.log(this.attempted);
+  }
+
+  startTimer(){
+    let t = setInterval(()=>{
+      if(this.timer>0){
+        this.timer--;
+      }
+      else{
+        this.isSubmit = true;
+        this.evalQuiz();
+        clearInterval(t);
+      }
+    },1000);
+  }
+
+  getFormattedTime(){
+    let minutes = Math.floor(this.timer/60);
+    let seconds = this.timer - minutes  * 60;
+    return `${minutes} min : ${seconds} sec`
   }
 
 }
