@@ -4,6 +4,18 @@
         <div class="row">
             <div class="col-md-2">
                 <!-- instructions -->
+                <mat-card style="margin-top: 70px; margin-left: -50%; width: 150%;">
+                    <mat-card-header>
+                        <mat-card-title>Instructions</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content style="margin-top: 10px;">
+                        <ul>
+                            <li>Do not refresh the page.</li><br/>
+                            <li>Do not switch the tab.</li><br/>
+                            <li>Do not minimize the window.</li>
+                        </ul>
+                    </mat-card-content>
+                </mat-card>
             </div>
             <div class="col-md-8">
                 <ng-container *ngIf="questions && questions.length > 0 && questions[0].quiz">
@@ -70,6 +82,14 @@
                     <mat-card-content>
                         <table class="table text-center">
                             <tr>
+                                <td>Student Id</td>
+                                <td>{{user.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>Student Name</td>
+                                <td>{{user.firstName + " " + user.lastName}}</td>
+                            </tr>
+                            <tr>
                                 <td>Total Questions</td>
                                 <td>{{questions.length}}</td>
                             </tr>
@@ -92,7 +112,7 @@
                         </table>
                     </mat-card-content>
                     <div class="container text-center" style="margin-top: 30px; margin-bottom: 30px;">
-                        <button mat-raised-button color="primary">Print</button>
+                        <button mat-raised-button color="primary" (click)="printPage()">Print</button>
                         <button mat-raised-button color="accent" routerLink="/user-dashboard/0" style="margin-left: 10px;">Back</button>
                     </div>
                 </mat-card>
